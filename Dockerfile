@@ -8,7 +8,7 @@ LABEL dart-version="2.6.1"
 ENV PATH="/root/.pub-cache/bin:${PATH}"
 
 RUN apt-get update
-RUN apt-get install apt-transport-https
+RUN apt-get install -y apt-transport-https apt-utils curl
 RUN curl -sL https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN curl -sL https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
