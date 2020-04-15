@@ -1,15 +1,18 @@
 FROM google/dart:latest
 
 LABEL description='Docker image that contains latest dart and firebase-tools CLI'
-LABEL version="1.0.2"
-LABEL firebase-version='7.16.1'
+LABEL version="1.0.3"
+LABEL firebase-version='8.0.3'
 LABEL dart-version="2.7.2"
 
 ENV PATH="/root/.pub-cache/bin:${PATH}"
 
 RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get update && apt-get install -y nodejs yarn
-RUN npm i -g firebase-tools
+
+ENV PATH="$(yarn global bin):$PATH"
+
+RUN yarn global add firebase-tools
 RUN pub global activate webdev
