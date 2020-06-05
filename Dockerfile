@@ -1,9 +1,9 @@
 FROM google/dart:latest
 
 LABEL description='Docker image that contains latest dart and firebase-tools CLI'
-LABEL version="1.0.5"
+LABEL version="1.0.6"
 LABEL firebase-version='8.4.1'
-LABEL dart-version="2.8.3"
+LABEL dart-version="2.8.4"
 
 ENV PATH="/root/.pub-cache/bin:${PATH}"
 
@@ -16,3 +16,4 @@ ENV PATH="$(yarn global bin):$PATH"
 
 RUN yarn global add firebase-tools
 RUN pub global activate webdev
+RUN pub global activate environment_config
