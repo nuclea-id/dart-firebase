@@ -1,9 +1,10 @@
 FROM google/dart:latest
 
 LABEL description='Docker image that contains latest dart and firebase-tools CLI'
-LABEL version="1.0.6"
-LABEL firebase-version='8.4.1'
+LABEL version="1.0.7"
+LABEL firebase-version='8.4.2'
 LABEL dart-version="2.8.4"
+LABEL webdev-version="2.5.9"
 
 ENV PATH="/root/.pub-cache/bin:${PATH}"
 
